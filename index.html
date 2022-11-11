@@ -1,0 +1,190 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Socket.IO chat</title>
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <link rel="shortcut icon" type="images/x-icon" href="./source/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./source/css/alert.css">
+
+</head>
+<script src="./source/js/jquery-3.1.1.min.js"></script>
+<script src="./source/js/jquery.cookie.min_3.js"></script>
+<script src="./source/js/alert.js"></script>
+<style>
+  * {
+    box-sizing: border-box;
+    word-wrap: break-word;
+    word-break: break-all;
+    /* overflow: hidden; */
+  }
+
+  body {
+    font: 20px Helvetica, Arial;
+    background-image: linear-gradient(to right, pink, skyblue);
+  }
+
+  form {
+    background: transparent;
+
+  }
+
+  #messages {
+    /* #msgBox style-type: none; */
+    margin: 0;
+    padding: 0;
+    /* transform: translate(10px, -8px); */
+  }
+
+  #messages li {
+    padding: 5px 10px;
+    list-style-type: none;
+
+  }
+
+  /* #messages li:nth-child(odd) {
+    background: transparent;
+  } */
+
+  #welcome {
+    text-align: center;
+    font-size: 5.5vw;
+  }
+
+
+  #msgBox {
+
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 434px;
+
+  }
+
+
+
+  #msgBox::-webkit-scrollbar {
+
+    border-radius: 6px;
+    width: 6px;
+  }
+
+  #msgBox::-webkit-scrollbar-track {
+
+
+    background-color: transparent;
+
+  }
+
+  /* #msgBox::-webkit-scrollbar-thumb {
+
+    box-shadow: inset 0px 0px 6px rgb(0 0 0 / 32%)
+  } */
+
+
+  @media screen and (min-width:601px) {
+    #formBox {
+      position: fixed;
+      left: 25%;
+      right: 50%;
+      bottom: 10px;
+      width: 50%;
+    }
+
+    #msgBox {
+      margin: 9px 20px;
+    }
+
+    #borderBox {
+      margin: 54px 247px;
+      border: 3px solid #987cb9;
+      border-radius: 10px;
+    }
+
+    form button {
+      width: 9%;
+      background: #f2f2bb;
+      border: none;
+      padding: 9px;
+      border-radius: 5px;
+      float: right;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+    }
+    .span_border{
+      margin: 10px 20px;
+      
+    }
+    .span_border_parent{
+      border: solid;
+      border-radius: 10px;
+    }
+    .bothLi{
+      margin:3px 0px;
+    }
+    .span_border_parent:hover{
+      background:rgba(245, 245, 220, 0.909);
+    }
+  }
+
+  @media screen and (max-width:600px) {
+
+    #formBox {
+      position: fixed;
+      left: 13px;
+      width: 93%;
+      bottom: 35px;
+    }
+
+    #msgBox {
+      margin: 3vh;
+    }
+
+    form button {
+      background: rgb(130, 224, 255);
+      border: none;
+      padding: 9px;
+      border-radius: 5px;
+      float: right;
+      width: 17%;
+    }
+
+    form input {
+      border: 0;
+      padding: 10px;
+      width: 90%;
+      border-radius: 5px;
+      float: left;
+      width: 81%;
+    }
+  }
+</style>
+
+<body>
+  <div id="welcome">
+    WELCOME TO ONION'S CHAT ROOM
+  </div>
+  <div>
+    <HR style="FILTER:alpha(opacity=0,finishopacity=100,style=1)" width="80%" hight="2%" color=#987cb9 SIZE=3>
+  </div>
+  <div id="borderBox">
+    <div id="msgBox">
+      <div id="messages"></div>
+    </div>
+  </div>
+  <div id="formBox">
+    <form action="">
+      <input id="m" autocomplete="off" /><button>发送</button>
+    </form>
+  </div>
+
+</body>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="./source/js/index.js"></script>
+</html>
