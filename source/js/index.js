@@ -2,7 +2,7 @@ var nickName
 
   if (!$.cookie("nickName")) {
     nickName = prompt("请输入你的昵称：");
-
+    location.reload();
     while (nickName == "null" || nickName == "") {
       nickName = prompt("请正确输入你的昵称：");
     }
