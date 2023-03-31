@@ -12,4 +12,12 @@ Node server.js
 
 Author：Bigonion <br>
 email: a454888395@gmail.com
-###  开源协议：MIT
+##  开源协议
+**MIT**
+
+## 关于
+
+NameSpace: [bigonion.cn](https://bigonion.cn)   
+Origin: [bigonion.cn/blog](https://bigonion.cn/blog)    
+Powered by [md.bigonion.cn](https://bigonion.cn/blog)   
+
